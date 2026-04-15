@@ -1,194 +1,436 @@
-<!-- index.html - TEAM PAGE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WNG Team - THE FINALS</title>
+    <title>WNG - The Finals Team</title>
     <style>
-        /* Basic reset and dark theme */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            background-color: #0f0f0f;
-            color: #e0e0e0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
             line-height: 1.6;
         }
-        
-        /* Simple nav */
+
+        /* Navigation */
         nav {
-            background-color: #1a1a1a;
+            background-color: #111;
             padding: 1rem;
             border-bottom: 1px solid #333;
         }
-        
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
         nav a {
             color: #fff;
             text-decoration: none;
-            margin-right: 20px;
-            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
         }
-        
+
         nav a:hover {
             color: #888;
         }
-        
-        /* Container */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(to bottom, #111, #0a0a0a);
         }
-        
+
         h1 {
+            font-size: 3rem;
             margin-bottom: 0.5rem;
-            font-size: 2rem;
+            letter-spacing: 3px;
         }
-        
-        .subtitle {
+
+        .tagline {
             color: #888;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
         }
-        
-        /* Team sections */
-        .roster-section {
+
+        /* Main content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
             margin-bottom: 3rem;
+            display: none;
         }
-        
+
+        section.active {
+            display: block;
+        }
+
         h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
             color: #fff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #333;
         }
-        
-        /* Player cards - simple list style */
-        .player {
-            background-color: #1a1a1a;
+
+        /* Team roster */
+        .roster-section {
+            margin-bottom: 2rem;
+        }
+
+        .roster-section h3 {
+            color: #ccc;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .player-card {
+            background-color: #151515;
             border: 1px solid #333;
             padding: 1rem;
             margin-bottom: 1rem;
             border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
-        
+
+        .player-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .player-name {
             font-weight: bold;
-            font-size: 1.1rem;
             color: #fff;
+            font-size: 1.1rem;
         }
-        
+
         .player-role {
             color: #888;
             font-size: 0.9rem;
-            margin-top: 0.2rem;
         }
-        
-        .captain {
-            color: #ffd700;
+
+        .class-tag {
+            background-color: #222;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            border: 1px solid #444;
         }
-        
-        .coach {
-            color: #4a9eff;
-        }
-        
-        a.twitch-link {
+
+        .class-light { color: #ff6b6b; border-color: #ff6b6b; }
+        .class-medium { color: #4ecdc4; border-color: #4ecdc4; }
+        .class-heavy { color: #ffe66d; border-color: #ffe66d; }
+
+        .twitch-link {
             color: #9146ff;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
-        
-        a.twitch-link:hover {
+
+        .twitch-link:hover {
             text-decoration: underline;
         }
-        
+
+        .captain-badge {
+            background-color: #333;
+            color: #fff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+
+        .coach-badge {
+            background-color: #444;
+            color: #ccc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+
+        /* Tournaments */
+        .tournament-card {
+            background-color: #151515;
+            border: 1px solid #333;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .tournament-header {
+            margin-bottom: 1rem;
+        }
+
+        .tournament-name {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+
+        .tournament-date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .bracket-container {
+            margin: 1.5rem 0;
+            background-color: #0a0a0a;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .standings {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+        }
+
+        .standings h4 {
+            color: #ccc;
+            margin-bottom: 0.8rem;
+        }
+
+        .standings-list {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .standing-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background-color: #1a1a1a;
+            border-radius: 3px;
+        }
+
+        .standing-place {
+            color: #888;
+        }
+
+        .standing-team {
+            color: #fff;
+        }
+
+        .status-upcoming {
+            color: #4ecdc4;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+
+        .status-past {
+            color: #888;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
-            color: #555;
-            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid #222;
             margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .player-card { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
-
     <nav>
-        <a href="index.html">Team</a>
-        <a href="tourneys.html">Tourneys</a>
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('team')">Team</a></li>
+            <li><a href="#" onclick="showSection('tourneys')">Tourneys</a></li>
+        </ul>
     </nav>
 
-    <div class="container">
+    <header>
         <h1>WNG</h1>
-        <p class="subtitle>Amateur THE FINALS team</p>
-        
-        <!-- MAIN ROSTER - EDIT HERE -->
-        <div class="roster-section">
-            <h2>Main Roster</h2>
+        <p class="tagline">The Finals - Amateur Team</p>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <h2>Welcome</h2>
+            <p>We're WNG, a small amateur team playing The Finals. Just a group of friends trying to compete and have fun.</p>
+            <br>
+            <p>This is our first season together, so we're keeping things simple and focusing on improving as a team.</p>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team">
+            <h2>Team Roster</h2>
             
-            <div class="player">
-                <div class="player-name">
-                    <span class="captain">[CAPTAIN]</span> [WNG] PieroGG
-                    <br><a href="https://www.twitch.tv/pierogg35" class="twitch-link" target="_blank">twitch.tv/pierogg35</a>
+            <div class="roster-section">
+                <h3>Main Roster</h3>
+                
+                <div class="player-card">
+                    <div class="player-info">
+                        <span class="player-name">[WNG] PieroGG <span class="captain-badge">CAPTAIN</span></span>
+                        <span class="class-tag class-medium">Medium</span>
+                    </div>
+                    <a href="https://www.twitch.tv/pierogg35" target="_blank" class="twitch-link">Twitch</a>
                 </div>
-                <div class="player-role">Main Medium</div>
-            </div>
-            
-            <div class="player">
-                <div class="player-name">MДЖシ</div>
-                <div class="player-role">Main Light</div>
-            </div>
-            
-            <div class="player">
-                <div class="player-name">
-                    007Apex
-                    <br><a href="https://www.twitch.tv/007apex" class="twitch-link" target="_blank">twitch.tv/007apex</a>
+
+                <div class="player-card">
+                    <div class="player-info">
+                        <span class="player-name">MДЖシ</span>
+                        <span class="class-tag class-light">Light</span>
+                    </div>
                 </div>
-                <div class="player-role">Main Heavy</div>
-            </div>
-            
-            <div class="player">
-                <div class="player-name">
-                    <span class="coach">[COACH]</span> Prayingmantice9
+
+                <div class="player-card">
+                    <div class="player-info">
+                        <span class="player-name">007Apex</span>
+                        <span class="class-tag class-heavy">Heavy</span>
+                    </div>
+                    <a href="https://www.twitch.tv/007apex" target="_blank" class="twitch-link">Twitch</a>
                 </div>
-                <div class="player-role">Coach</div>
-            </div>
-        </div>
-        
-        <!-- RESERVE ROSTER - EDIT HERE -->
-        <div class="roster-section">
-            <h2>Reserve Roster</h2>
-            
-            <div class="player">
-                <div class="player-name">
-                    <span class="captain">[CAPTAIN]</span> Mxrchew
+
+                <div class="player-card">
+                    <div class="player-info">
+                        <span class="player-name">Prayingmantice9 <span class="coach-badge">COACH</span></span>
+                        <span class="player-role">Coach</span>
+                    </div>
                 </div>
-                <div class="player-role">Main Heavy</div>
             </div>
-            
-            <div class="player">
-                <div class="player-name">
-                    [WNG] Adamenek
-                    <br><a href="https://www.twitch.tv/adamenek_" class="twitch-link" target="_blank">twitch.tv/adamenek_</a>
+
+            <div class="roster-section">
+                <h3>Reserve Roster</h3>
+                
+                <div class="player-card">
+                    <div class="player-info">
+                        <span class="player-name">Mxrchew <span class="captain-badge">CAPTAIN</span></span>
+                        <span class="class-tag class-heavy">Heavy</span>
+                    </div>
                 </div>
-                <div class="player-role">Main Medium/Light</div>
+
+                <div class="player-card">
+                    <div class="player-info">
+                        <span class="player-name">[WNG] Adamenek</span>
+                        <span class="class-tag class-medium">Medium/Light</span>
+                    </div>
+                    <a href="https://www.twitch.tv/adamenek_" target="_blank" class="twitch-link">Twitch</a>
+                </div>
+
+                <div class="player-card">
+                    <div class="player-info">
+                        <span class="player-name">zeke</span>
+                        <span class="class-tag class-medium">Medium/Light</span>
+                    </div>
+                </div>
             </div>
-            
-            <div class="player">
-                <div class="player-name">zeke</div>
-                <div class="player-role">Main Medium/Light</div>
+        </section>
+
+        <!-- Tourneys Section -->
+        <section id="tourneys">
+            <h2>Tournaments</h2>
+
+            <!-- Upcoming -->
+            <div class="tournament-card">
+                <div class="tournament-header">
+                    <div class="tournament-name">
+                        WNG Tourney
+                        <span class="status-upcoming">UPCOMING</span>
+                    </div>
+                    <div class="tournament-date">April 18, 2026</div>
+                </div>
+                
+                <div class="bracket-container">
+                    <iframe src="https://brackethq.com/b/q9cdd/embed/" width="100%" height="550" frameborder="0"></iframe>
+                </div>
+
+                <div class="standings">
+                    <h4>Final Standings</h4>
+                    <div class="standings-list">
+                        <div class="standing-item">
+                            <span class="standing-place">1st Place</span>
+                            <span class="standing-team">-</span>
+                        </div>
+                        <div class="standing-item">
+                            <span class="standing-place">2nd Place</span>
+                            <span class="standing-team">-</span>
+                        </div>
+                        <div class="standing-item">
+                            <span class="standing-place">3rd Place</span>
+                            <span class="standing-team">-</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+
+            <!-- Past Tournaments Template (for future use) -->
+            <!--
+            <div class="tournament-card">
+                <div class="tournament-header">
+                    <div class="tournament-name">
+                        Tournament Name
+                        <span class="status-past">COMPLETED</span>
+                    </div>
+                    <div class="tournament-date">Date</div>
+                </div>
+                
+                <div class="standings">
+                    <h4>Final Standings</h4>
+                    <div class="standings-list">
+                        <div class="standing-item">
+                            <span class="standing-place">1st Place</span>
+                            <span class="standing-team">Team Name</span>
+                        </div>
+                        <div class="standing-item">
+                            <span class="standing-place">2nd Place</span>
+                            <span class="standing-team">Team Name</span>
+                        </div>
+                        <div class="standing-item">
+                            <span class="standing-place">3rd Place</span>
+                            <span class="standing-team">Team Name</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+        </section>
+    </main>
 
     <footer>
-        WNG Team © 2026 - Amateur THE FINALS Team
+        <p>&copy; 2026 WNG Team. Amateur The Finals Team.</p>
     </footer>
 
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
