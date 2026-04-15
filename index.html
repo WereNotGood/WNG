@@ -1,0 +1,194 @@
+<!-- index.html - TEAM PAGE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WNG Team - THE FINALS</title>
+    <style>
+        /* Basic reset and dark theme */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #0f0f0f;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Simple nav */
+        nav {
+            background-color: #1a1a1a;
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            color: #888;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        .subtitle {
+            color: #888;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Team sections */
+        .roster-section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+        
+        /* Player cards - simple list style */
+        .player {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        
+        .player-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        
+        .player-role {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+        
+        .captain {
+            color: #ffd700;
+        }
+        
+        .coach {
+            color: #4a9eff;
+        }
+        
+        a.twitch-link {
+            color: #9146ff;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        
+        a.twitch-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #555;
+            font-size: 0.8rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Team</a>
+        <a href="tourneys.html">Tourneys</a>
+    </nav>
+
+    <div class="container">
+        <h1>WNG</h1>
+        <p class="subtitle>Amateur THE FINALS team</p>
+        
+        <!-- MAIN ROSTER - EDIT HERE -->
+        <div class="roster-section">
+            <h2>Main Roster</h2>
+            
+            <div class="player">
+                <div class="player-name">
+                    <span class="captain">[CAPTAIN]</span> [WNG] PieroGG
+                    <br><a href="https://www.twitch.tv/pierogg35" class="twitch-link" target="_blank">twitch.tv/pierogg35</a>
+                </div>
+                <div class="player-role">Main Medium</div>
+            </div>
+            
+            <div class="player">
+                <div class="player-name">MДЖシ</div>
+                <div class="player-role">Main Light</div>
+            </div>
+            
+            <div class="player">
+                <div class="player-name">
+                    007Apex
+                    <br><a href="https://www.twitch.tv/007apex" class="twitch-link" target="_blank">twitch.tv/007apex</a>
+                </div>
+                <div class="player-role">Main Heavy</div>
+            </div>
+            
+            <div class="player">
+                <div class="player-name">
+                    <span class="coach">[COACH]</span> Prayingmantice9
+                </div>
+                <div class="player-role">Coach</div>
+            </div>
+        </div>
+        
+        <!-- RESERVE ROSTER - EDIT HERE -->
+        <div class="roster-section">
+            <h2>Reserve Roster</h2>
+            
+            <div class="player">
+                <div class="player-name">
+                    <span class="captain">[CAPTAIN]</span> Mxrchew
+                </div>
+                <div class="player-role">Main Heavy</div>
+            </div>
+            
+            <div class="player">
+                <div class="player-name">
+                    [WNG] Adamenek
+                    <br><a href="https://www.twitch.tv/adamenek_" class="twitch-link" target="_blank">twitch.tv/adamenek_</a>
+                </div>
+                <div class="player-role">Main Medium/Light</div>
+            </div>
+            
+            <div class="player">
+                <div class="player-name">zeke</div>
+                <div class="player-role">Main Medium/Light</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        WNG Team © 2026 - Amateur THE FINALS Team
+    </footer>
+
+</body>
+</html>
